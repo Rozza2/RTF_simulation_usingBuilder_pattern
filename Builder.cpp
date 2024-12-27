@@ -59,12 +59,12 @@ class TextWidgtConverter :public TextConverter{
     }
     void ConvertFontChange(string temp){
         result += temp;
-        result += " {font_TeXWid.} ";
+        result += " [font_TeXWid.] ";
     }
     void ConvertParagraph (string temp){
         result += temp;
         if(temp == "\\par")
-        result += " {end of paragraph settings {TeXWidegt}} \n";
+        result += " [end of paragraph settings [TeXWidegt]] \n";
     }
     string getTeXWidgt (){
         return result;
@@ -152,5 +152,5 @@ int main(){
     TextWidgtConverter TextWidgtConverter_builder;
     reader.setBuilder(&TextWidgtConverter_builder);
     reader.ParseRTF();
-    cout<<"\n\n"<<"TextWidgtConverter output: \n"<<TextWidgtConverter_builder.getTeXWidgt()<<endl;     
+    cout<<"\n\n"<<"TextWidgtConverter output: \n"<<TextWidgtConverter_builder.getTeXWidgt()<<endl;
 }
